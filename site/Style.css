@@ -1,1 +1,88 @@
+/* Основные стили */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
+}
 
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Шапка */
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 20px 0;
+    border-bottom: #e8491d 3px solid;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header ul {
+    padding: 0;
+    list-style: none;
+}
+
+header li {
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+/* Основной контент */
+main {
+    padding: 20px 0;
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+}
+
+.security-model {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Таблица угроз */
+.threats-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.threats-table th, .threats-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.threats-table th {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.threats-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Подвал */
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
