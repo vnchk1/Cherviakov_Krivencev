@@ -12,13 +12,13 @@
 
 Освоены базовые команды Git:
 
-'''
+```
 git clone <url_repository>      # Клонирование репозитория
 git checkout -b feature_branch  # Создание новой ветки
 git add .                       # Добавление изменений
 git commit -m "Сообщение"       # Создание коммита
 git push origin main            # Отправка изменений
-'''
+```
 
 # 2. Изучение синтаксиса Markdown
 
