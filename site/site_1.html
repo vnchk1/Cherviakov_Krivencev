@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проектная практика | Модель управления безопасностью веб-приложения</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background: #27ae60;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav {
+            background: #2ecc71;
+            padding: 0.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+            nav ul {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+                nav ul li {
+                    margin: 0 15px;
+                }
+
+                    nav ul li a {
+                        color: white;
+                        text-decoration: none;
+                        font-weight: bold;
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                        transition: background-color 0.3s;
+                    }
+
+                        nav ul li a:hover {
+                            background-color: #27ae60;
+                        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            overflow: hidden;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #27ae60;
+            color: white;
+        }
+
+        .team-member {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .journal-entry {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .resources-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+            .resources-list li {
+                margin-bottom: 10px;
+                padding: 8px;
+                background-color: #f9f9f9;
+                border-radius: 5px;
+            }
+
+            .resources-list a {
+                color: #27ae60;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                .resources-list a:hover {
+                    text-decoration: underline;
+                }
+
+        h2 {
+            color: #27ae60;
+            border-bottom: 2px solid #2ecc71;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #2ecc71;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .task-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+            .task-list li {
+                background-color: #e8f5e9;
+                margin-bottom: 10px;
+                padding: 10px;
+                border-left: 4px solid #27ae60;
+            }
+        /* Новые стили для журнала */
+        .journal-card {
+            display: flex;
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .journal-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .journal-image {
+            flex: 0 0 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background: #f9f9f9;
+        }
+
+            .journal-image img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 4px;
+            }
+
+        @media (max-width: 768px) {
+            .journal-card {
+                flex-direction: column;
+            }
+
+            .journal-image {
+                flex: 0 0 auto;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <header>
+        <h1>Проектная (учебная) практика</h1>
+        <p>Модель управления безопасностью веб-приложения</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#about">О проекте</a></li>
+            <li><a href="#team">Участники</a></li>
+            <li><a href="#tasks">Задачи</a></li>
+            <li><a href="#journal">Журнал</a></li>
+            <li><a href="#resources">Ресурсы</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+    </nav>
+    <div class="container" id="home">
+        <section>
+            <h2>Аннотация проекта</h2>
+            <p>Данный проект посвящен разработке модели управления безопасностью веб-приложения в рамках проектной (учебной) практики по дисциплине "Проектная деятельность".</p>
+            <p>Проект выполняется в связке с проектом «Open Digital Cash» и направлен на обеспечение комплексной защиты веб-приложений от современных киберугроз.</p>
+        </section>
+    </div>
+
+    <div class="container" id="about">
+        <section>
+            <h2>О проекте</h2>
+            <h3>Цели и задачи</h3>
+            <p>Разработка комплексной модели управления безопасностью веб-приложения с учетом современных угроз и требований информационной безопасности.</p>
+
+            <h3>Методы и технологии</h3>
+            <p>В проекте используются методы анализа угроз, моделирования архитектуры безопасности, разработки политик и процедур информационной безопасности.</p>
+
+            <h3>Ожидаемые результаты</h3>
+            <p>Готовая модель управления безопасностью веб-приложения, включая архитектуру защиты, политики безопасности и план реагирования на инциденты.</p>
+        </section>
+    </div>
+
+    <div class="container" id="team">
+        <section>
+            <h2>Участники проекта</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ФИО</th>
+                        <th>Учебная группа</th>
+                        <th>Код направления подготовки</th>
+                        <th>Профиль образовательной программы</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Кривенцев Д. Е.</td>
+                        <td>241-371</td>
+                        <td>10.05.03</td>
+                        <td>Информационная безопасность</td>
+                    </tr>
+                    <tr>
+                        <td>Червяков И. А.</td>
+                        <td>241-352</td>
+                        <td>10.03.01</td>
+                        <td>Информационная безопасность</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <div class="container" id="tasks">
+        <section>
+            <h2>Задачи проекта</h2>
+            <h3>Вариативная часть задания</h3>
+            <p>Тема: "Модель управления безопасностью веб-приложения"</p>
+
+            <ul class="task-list">
+                <li>Определить архитектуру: frontend, backend, БД, ОС</li>
+                <li>Выделить уязвимые компоненты (входы, хранение, сессии)</li>
+                <li>Предложить модель управления безопасностью (роли, политики, контроль изменений)</li>
+                <li>Сформировать план реагирования на инциденты</li>
+                <li>Подготовить сопроводительную документацию (в формате ИБ-документа)</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="container" id="journal">
+        <section>
+            <h2>Журнал проекта</h2>
+
+
+            <!-- Добавленные записи из примера -->
+            <div class="journal-card">
+                <div class="journal-content">
+                    <h3>Часть 1: Учебная практика: базовая часть</h3>
+                    <p><em>Дата: 31.03.2025</em></p>
+                    <p>Мы создали репозиторий на github, в нём оформили все материалы проекта в формате Markdown, создали сайт который вы сейчас читаете с помощью HTML и CSS. Это заняло около 32 часов: 5 на GitHub, 5 на написание документов в Markdown, 14 часов на работу с HTML файлом и 8 часов на CSS.</p>
+                </div>
+                <div class="journal-image">
+                    <img src="photo2.png" alt="Фото практики">
+                </div>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-content">
+                    <h3>Часть 2: Учебная практика: вариативная часть</h3>
+                    <p><em>Дата: 24.03.2025</em></p>
+                    <p>Задание: "Модель управления безопасностью веб-приложения"</p>
+                    <p>Мы разбирались, как разработать и описать систему управления безопасностью типового веб-приложения.</p>
+                    <p>Определяли архитектуру веб-приложения, выделяли уязвимые компоненты, разрабатывали модель управления безопасностью, формировали план реагирования на инциденты и готовили сопроводительную документацию.</p>
+                </div>
+                <div class="journal-image">
+                    <img src="photo3.png" alt="Фото практики">
+                </div>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-content">
+                    <h3>Пост 1: Цифровой рубль — новый этап в развитии российской финансовой системы</h3>
+                    <p><em>Дата: 03.03.2025</em></p>
+                    <p>Недавно стало известно, что российские дочерние компании европейских банков Raiffeisen Bank International и UniCredit примут участие в массовом запуске цифрового рубля, намеченном на июль 2025 года. Центральный банк России ожидает их участия, предупреждая о возможных штрафах за несоблюдение требований.</p>
+
+                    <p>Кроме того, в ноябре 2024 года Ольга Скоробогатова, первый заместитель председателя Центрального банка России, ответственная за цифровые проекты, включая цифровой рубль и национальную платежную систему, подала в отставку. Её вклад в цифровое развитие банковского сектора страны был значительным и помог финансовой системе России противостоять западным санкциям.</p>
+
+                    <p>Эти события подчёркивают стремление России к внедрению цифрового рубля и модернизации финансовой инфраструктуры. Ожидается, что цифровой рубль обеспечит более эффективные и безопасные платежи, а также укрепит суверенитет страны в финансовой сфере.</p>
+
+                    <h4>Ссылки на источники:</h4>
+                    <ul class="resources-list">
+                        <li><a href="https://russian.rt.com/business/article/1367840-cifrovoi-rubl-vnedrenie?utm_source" target="_blank">RT: Внедрение цифрового рубля</a></li>
+                        <li><a href="https://www.reuters.com/markets/currencies/russia-expects-raiffeisen-unicredit-subsidiaries-help-launch-digital-rouble-2024-10-17/?utm_source" target="_blank">Reuters: Участие иностранных банков</a></li>
+                        <li><a href="https://www.vedomosti.ru/finance/articles/2024/11/21/1076545-skorobogatova-pokinet-bank-rossii?utm_source" target="_blank">Ведомости: Отставка Скоробогатовой</a></li>
+                    </ul>
+                </div>
+                <div class="journal-image">
+                    <img src="photo4.jpg" alt="Цифровой рубль">
+                </div>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-content">
+                    <h3>Пост 2: Международное сотрудничество в сфере цифровых валют: конференции, договоры и будущее финансов</h3>
+                    <p><em>Дата: 17.03.2025</em></p>
+                    <p>Цифровые валюты становятся неотъемлемой частью глобальной финансовой системы. Страны по всему миру активно обсуждают, как регулировать и внедрять криптовалюты, CBDC (цифровые валюты центральных банков) и блокчейн-технологии. Давайте разберем, как развивается международное сотрудничество в этой сфере.</p>
+
+                    <h4>Ключевые конференции и события</h4>
+
+                    <p>1. G20 и цифровые валюты</p>
+                    <p>На саммитах G20 регулярно обсуждаются вопросы регулирования криптовалют и CBDC. В 2023 году страны договорились о создании единых стандартов для цифровых активов.</p>
+                    <p><a href="https://www.g20.org" target="_blank">Подробнее</a></p>
+
+                    <p>2. Международный валютный фонд (МВФ) и Всемирный банк</p>
+                    <p>МВФ активно поддерживает разработку CBDC и предлагает рекомендации по их внедрению. На ежегодных встречах обсуждаются риски и преимущества цифровых валют.</p>
+                    <p><a href="https://www.imf.org" target="_blank">Читать доклад МВФ</a></p>
+
+                    <p>3. Конференция по цифровым валютам в Швейцарии</p>
+                    <p>Ежегодная конференция в Цюрихе собирает экспертов со всего мира для обсуждения будущего блокчейна и CBDC.</p>
+                    <p><a href="https://www.digitalcurrencyconference.com" target="_blank">Сайт конференции</a></p>
+
+                    <h4>Международные договоры и инициативы</h4>
+
+                    <p>1. Соглашение о регулировании криптовалют в ЕС (MiCA)</p>
+                    <p>Европейский Союз принял Markets in Crypto-Assets (MiCA) — первый в мире масштабный закон о регулировании криптовалют.</p>
+                    <p><a href="https://ec.europa.eu" target="_blank">Подробности</a></p>
+
+                    <p>2. Сотрудничество между США и ЕС</p>
+                    <p>США и ЕС активно обсуждают создание общей регуляторной базы для цифровых валют, чтобы избежать рисков отмывания денег и мошенничества.</p>
+                    <p><a href="https://www.ecb.europa.eu" target="_blank">Читать новости</a></p>
+
+                    <p>3. Инициатива БРИКС</p>
+                    <p>Страны БРИКС обсуждают создание собственной цифровой валюты для уменьшения зависимости от доллара.</p>
+                    <p><a href="https://www.brics-info.org" target="_blank">Подробнее</a></p>
+
+                    <h4>Что дальше?</h4>
+                    <p>Международное сотрудничество в сфере цифровых валют только набирает обороты. Будущее финансов — за технологиями, которые объединяют страны и создают новые возможности для экономик.</p>
+
+                    <p>Делитесь своим мнением: как, по вашему, цифровые валюты изменят мировую финансовую систему?</p>
+                </div>
+                <div class="journal-image">
+                    <img src="photo6.jpg" alt="Фото проекта">
+                </div>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-content">
+                    <h3>Пост 3: Роль частных компаний в развитии CBDC: партнерство или конкуренция?</h3>
+                    <p><em>Дата: 17.03.2025</em></p>
+                    <p>Цифровые валюты центральных банков (CBDC) — это не только инициатива государств, но и область, где активно участвуют частные компании. От технологических гигантов до финтех-стартапов — бизнес играет ключевую роль в создании и внедрении CBDC. Давайте разберем, как это происходит.</p>
+
+                    <h4>Как частные компании помогают развивать CBDC?</h4>
+
+                    <p>1. Технологическая поддержка</p>
+                    <p>Компании предоставляют блокчейн-решения, облачные технологии и системы безопасности для создания инфраструктуры CBDC. Например, IBM и Microsoft уже сотрудничают с центральными банками по всему миру.</p>
+
+                    <p>2. Разработка кошельков и платежных систем</p>
+                    <p>Частные компании создают пользовательские интерфейсы, мобильные приложения и платежные шлюзы для CBDC. Например, Visa и Mastercard активно тестируют интеграцию CBDC в свои системы.</p>
+
+                    <p>3. Консультации и исследования</p>
+                    <p>Консалтинговые компании, такие как McKinsey и Deloitte, помогают центральным банкам анализировать риски и преимущества CBDC, а также разрабатывать стратегии внедрения.</p>
+
+                    <h4>Примеры успешного сотрудничества</h4>
+
+                    <p>1. Китай и Ant Group</p>
+                    <p>Ant Group, дочерняя компания Alibaba, активно участвует в тестировании цифрового юаня (e-CNY), предоставляя технологические решения и платформы для розничных платежей.</p>
+
+                    <p>2. Швеция и Accenture</p>
+                    <p>В рамках проекта e-krona шведский центральный банк сотрудничает с Accenture для разработки пилотной версии CBDC.</p>
+
+                    <p>3. США и Ripple</p>
+                    <p>Ripple, известная своими решениями для блокчейна, активно обсуждает с регуляторами США возможность использования своей технологии для CBDC.</p>
+
+                    <h4>Партнерство или конкуренция?</h4>
+                    <p>Хотя частные компании играют важную роль в развитии CBDC, их участие вызывает вопросы о балансе между государственным контролем и коммерческими интересами. Некоторые эксперты опасаются, что чрезмерное влияние бизнеса может подорвать суверенитет CBDC.</p>
+
+                    <p>Как вы думаете, должно ли государство полностью контролировать CBDC, или участие частных компаний — это необходимость? Делитесь мнением в комментариях!</p>
+                </div>
+                <div class="journal-image">
+                    <img src="photo5.jpg" alt="Фото проекта">
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="container" id="resources">
+        <section>
+            <h2>Полезные ресурсы</h2>
+            <ul class="resources-list">
+                <li><a href="#" target="_blank">Методические материалы по проектной практике</a></li>
+                <li><a href="#" target="_blank">Руководство по безопасности веб-приложений OWASP</a></li>
+                <li><a href="#" target="_blank">Документация проекта «Open Digital Cash»</a></li>
+                <li><a href="#" target="_blank">Стандарты информационной безопасности</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="container" id="contacts">
+        <section>
+            <h2>Контакты</h2>
+            <h3>Ответственный по проектной (учебной) практике</h3>
+            <p>Кесель Сергей Александрович, кафедра "Информационная безопасность"</p>
+
+            <h3>Куратор по проектной деятельности</h3>
+            <p>Данышина Марина Владимировна</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Проектная практика. Модель управления безопасностью веб-приложения. Все права защищены.</p>
+    </footer>
+
+    <script>
+        // Плавная прокрутка при нажатии на ссылки навигации
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
