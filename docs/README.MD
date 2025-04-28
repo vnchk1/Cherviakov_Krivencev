@@ -12,7 +12,7 @@
 
 Освоены базовые команды Git:
 
-```
+```bash
 git clone <url_repository>      # Клонирование репозитория
 git checkout -b feature_branch  # Создание новой ветки
 git add .                       # Добавление изменений
