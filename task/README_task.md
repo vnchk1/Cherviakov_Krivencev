@@ -96,7 +96,7 @@
 
 5) Основы CSS: https://developer.mozilla.org/ru/docs/Web/CSS
 
-6) mhttps://doka.guide/
+6) https://doka.guide/
 
 7) Официальная документация Git: https://git-scm.com/book/ru/v2
 
